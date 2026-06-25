@@ -1,0 +1,41 @@
+# --- LaTeX ---
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.fls
+*.log
+*.fdb_latexmk
+*.synctex.gz
+*.dvi
+*.ps
+*.nav
+*.snm
+*.vrb
+*.synctex(busy)
+
+# --- Carpetas generadas ---
+/build/
+/out/
+
+# --- Otros ---
+.DS_Store
+Thumbs.db
+_minted-*
+portada_basica.tex
+portada_carpeta.tex
+img/logo_cifp.png
+*.pdf
+*.lol

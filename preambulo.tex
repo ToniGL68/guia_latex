@@ -1,0 +1,429 @@
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{lipsum} % para pruebas, texto relleno
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    headheight=15pt,
+    headsep=15pt,
+    foot=25pt,
+    top=3cm,
+    bottom=3cm,
+    left=2.5cm,
+    right=2.5cm
+    }
+%\usepackage{layout} % para ver layout con \layout
+\usepackage{parskip}
+\usepackage{setspace}
+\onehalfspacing
+%\usepackage{libertine}
+\usepackage{libertinus}
+\usepackage{libertinust1math} % Necesario solo para pdfLaTeX   
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{float}
+\usepackage{multicol}       % Texto en columnas
+\usepackage{soul}           % Subrayado y resaltado mejorados
+%usepackage{showframe}      % dibuja líneas de márgenes, encabezados, etc
+\usepackage{icomma}
+\usepackage{calc}
+\usepackage{mdframed}       % Alternativa a tcolorbox, más simple
+\usepackage[most]{tcolorbox}      % Cajas de texto destacadas
+\tcbset{
+    minimalista/.style={
+        colback=gray!5,    % Fondo gris muy suave
+        colframe=gray!20,  % Marco gris muy suave
+        sharp corners,     % Esquinas cuadradas (minimalista)
+        boxrule=0.5pt,     % Borde fino
+        left=2mm, right=2mm, top=1mm, bottom=1mm % Margen interno pequeño
+    }
+}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+% siunitx: manejo de unidades y números
+\usepackage{siunitx}
+\sisetup{
+    output-decimal-marker = {,}, % Usa la coma decimal española
+    exponent-product = \cdot,    % Usa punto para exponentes científicos
+    inter-unit-product = \cdot,  % Punto entre unidades (ej: N·m)
+    group-separator = {.},       % Separador de miles con punto
+    detect-all                   % Usa la fuente del entorno actual
+}
+
+% páginas en horizontal (landscape)
+\usepackage{pdflscape}
+
+% inserción de documentos PDF externos
+\usepackage{pdfpages}
+
+\usepackage{caption}
+\captionsetup{
+    font=footnotesize,      % Reduce el tamaño de fuente para todo el caption
+    labelfont=bf,    % Pone la etiqueta (Tabla x: o Figura x) en negrita
+    skip=8pt        % Mantiene una separación constante
+}
+
+\usepackage{subcaption}
+
+\usepackage{microtype}
+
+\usepackage{enumitem}
+\setlist{noitemsep} % listas más compactas
+
+%\usepackage{listings}
+
+% \definecolor{codegreen}{rgb}{0,0.6,0}
+% \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+% \definecolor{codepurple}{rgb}{0.58,0,0.82}
+% \definecolor{backcolour}{rgb}{0.95,0.95,0.94}
+
+% \lstdefinestyle{mystyle}{
+%     backgroundcolor=\color{backcolour},   
+%     commentstyle=\color{codegreen},
+%     keywordstyle=\color{magenta},
+%     numberstyle=\tiny\color{codegray},
+%     stringstyle=\color{codepurple},
+%     basicstyle=\ttfamily\footnotesize,
+%     breakatwhitespace=false,         
+%     breaklines=true,                 
+%     captionpos=b,                    
+%     keepspaces=true,                 
+%     numbers=left,                    
+%     numbersep=5pt,                  
+%     showspaces=false,                
+%     showstringspaces=false,
+%     showtabs=false,                  
+%     tabsize=2
+% }
+
+% \lstset{style=mystyle}
+
+\usepackage[titletoc,title]{appendix}
+
+\usepackage[newfloat]{minted}
+\SetupFloatingEnvironment{listing}{name=Código}
+\SetupFloatingEnvironment{listing}{listname=Índice de Códigos}
+
+% definir colores para el fondo y el marco (opcional, si el estilo no los incluye)
+\definecolor{bg}{rgb}{0.95,0.95,0.95} % Color de fondo gris muy claro
+\definecolor{framecolor}{rgb}{0.8,0.8,0.8} % Color del borde
+
+\usemintedstyle{tango}
+
+% ajustes opcionales
+\setminted{
+    %bgcolor=bg,              % Color de fondo
+    bgcolor=gray!5,              % Color de fondo
+    frame=none,             % Tipo de marco (lines, single, none)
+    framesep=2mm,            % Separación del marco
+    framerule=1pt,
+    rulecolor=\color{framecolor}, % Color de la línea del marco
+    breaklines,              % Romper líneas largas
+    breakautoindent=true,
+    %breakanywhere,           % Romper en cualquier carácter si es necesario
+    numbersep=5pt,           % Separación de los números de línea
+    showspaces=false,        % No mostrar espacios
+    tabsize=2                % Tamaño de tabulación
+}
+
+\addto\captionsspanish{
+    \renewcommand{\tablename}{Tabla}
+    \renewcommand{\figurename}{Figura}
+    \renewcommand{\contentsname}{Índice de Contenidos}
+    \renewcommand{\listtablename}{Índice de Tablas}
+    \renewcommand{\listfigurename}{Índice de Figuras}     
+    \renewcommand{\appendixname}{Anexo}
+    \renewcommand{\appendixtocname}{Anexos}
+    \renewcommand{\appendixpagename}{Anexos}
+    %\renewcommand{\lstlistingname}{Código}
+    %\renewcommand{\lstlistlistingname}{Índice de Códigos}
+}
+
+\graphicspath{ {img/} }
+
+\definecolor{color_logo}{RGB}{0, 46, 95}
+\definecolor{color_logo_2}{RGB}{108, 109, 113}
+
+\usepackage{csquotes}
+\usepackage[backend=biber, style=ieee]{biblatex}
+\addbibresource{bibliografia.bib} % Tu archivo de referencias
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,      % Activa el color en los enlaces
+    linkcolor=blue,       % Color de enlaces internos (índices, secciones)
+    filecolor=magenta,    % Color de enlaces a archivos
+    urlcolor=cyan,        % Color de enlaces a páginas web
+    citecolor=red,        % Color de citas bibliográficas
+    %allcolors=black      % todos los enlaces en negro
+    %pdfauthor={Tu Nombre}, % Metadatos para el PDF
+    %pdftitle={Título del Documento}
+}
+
+\usepackage{bookmark}
+\usepackage[capitalise]{cleveref}
+
+%##################################################
+% Catálogo Técnico de Paquetes (Guía de Referencia)
+%##################################################
+% fontenc: Define la codificación de fuentes de salida a T1.
+%  Efecto: Permite que los caracteres acentuados sean tratados
+%  como glifos únicos, mejorando la calidad de la tipografía
+%  y el corte de palabras.
+
+% inputenc: Establece la codificación de entrada (UTF-8).
+%  Efecto: Permite escribir tildes y eñes directamente
+%  en el editor sin caracteres extraños.
+
+% babel: Motor de localización. 
+%  Efecto: Traduce automáticamente términos como "Chapter" a
+%  "Capítulo" y ajusta las reglas de partición silábica al español.
+
+% lipsum: Generador de texto relleno.
+%  Efecto: Inserta bloques de texto "Lorem Ipsum" para realizar 
+%  pruebas de diseño sin necesidad de contenido real.
+
+% geometry: Herramienta de control de página.
+%  Efecto: Modifica los márgenes y áreas de texto estándar de
+%  LaTeX, que suelen ser muy amplios por defecto.
+
+% layout: Herramienta de diagnóstico. 
+%  Efecto: Genera un esquema técnico visual con las medidas
+%  exactas de la página para verificar el diseño.
+
+% showframe: Herramienta de diagnóstico.
+%  Efecto: Dibuja marcos sobre el área de texto y márgenes 
+%  para ver visualmente dónde termina cada elemento.
+
+% parskip: Gestor de párrafos.
+%  Efecto: Elimina la sangría al inicio de párrafo y añade 
+%  un espacio vertical entre ellos (cambia el estilo 
+%  "novela" por el estilo "documento técnico").
+
+% setspace: Controlador de interlineado.
+%  Efecto: Permite aplicar configuraciones como 
+%  \onehalfspacing (1.5), eliminando el espaciado simple por defecto.
+
+% libertine: Familia tipográfica (clásica).
+%  Efecto: Cambia la fuente estándar (Computer Modern)
+%  por una con estilo editorial profesional.
+
+% libertinus: Familia tipográfica (moderna).
+%  Efecto: Proporciona una fuente refinada y 
+%  equilibrada, optimizada para lectura técnica.
+
+% libertinust1math: Soporte matemático para Libertinus.
+%  Efecto: Asegura que las fórmulas matemáticas usen la 
+%  misma familia de fuentes que el texto, evitando la 
+%  inconsistencia visual.
+
+% xcolor: Gestión de color. 
+%  Efecto: Permite usar nombres de colores (red, blue) 
+%  y definir colores personalizados mediante \definecolor.
+
+% graphicx: Interfaz para gráficos.
+%  Efecto: Habilita el comando \includegraphics, 
+%  esencial para insertar imágenes en formatos estándar.
+
+% tikz: Lenguaje de dibujo vectorial.
+%  Efecto: Permite crear diagramas y figuras complejas 
+%  mediante código dentro del documento.
+
+% array: Extensión para tablas.
+%  Efecto: Añade flexibilidad al entorno tabular, 
+%  permitiendo definir tipos de columna más avanzados.
+
+% float: Control de flotantes.
+%  Efecto: Permite usar el parámetro [H] para forzar la posición 
+%  exacta de una figura, evitando que LaTeX la mueva libremente.
+
+% multicol: Gestor de maquetación.
+%  Efecto: Permite dividir secciones del documento en múltiples 
+%  columnas, rompiendo la estructura de columna única.
+
+% soul: Decoración de texto.
+%  Efecto: Permite realizar subrayados, tachados y resaltados 
+%  que se ajustan correctamente a la línea base del texto.
+
+% icomma: Adaptador de coma decimal.
+%  Efecto: Elimina el espacio que LaTeX añade por defecto 
+%  tras una coma en modo matemático, ideal para el formato español.
+
+% calc: Calculadora.
+%  Efecto: Permite realizar sumas y restas con unidades 
+%  (cm, pt) directamente en los argumentos de los comandos.
+
+% mdframed: Enmarcador.
+%  Efecto: Permite encerrar párrafos en cajas con bordes 
+%  personalizados, facilitando la creación de avisos destacados.
+
+% tcolorbox: Motor de cajas decorativas.
+%  Efecto: Permite crear cuadros de alto diseño, 
+%  con colores de fondo, esquinas redondeadas y títulos.
+
+% tabularx: Tablas de ancho automático.
+%  Efecto: Permite el uso de la columna X, que ajusta 
+%  automáticamente su ancho para llenar el ancho total del texto.
+
+% booktabs: Reglas de tablas.
+%  Efecto: Mejora la calidad visual de las líneas, 
+%  desaconsejando (o evitando) el uso de líneas 
+%  verticales en tablas.
+
+% caption: Gestor de etiquetas.
+%  Efecto: Permite controlar el estilo de los pies 
+%  de figura (fuente, negrita, espacio) de forma centralizada.
+
+% subcaption: Gestor de subfiguras.
+%  Efecto: Permite anidar imágenes y etiquetas individuales
+%   bajo una misma figura principal.
+
+% microtype: Optimizador tipográfico.
+%  Efecto: Ajusta el interletraje y el borde derecho 
+%  del texto, eliminando espacios desiguales entre palabras.
+
+% enumitem: Personalizador de listas.
+%  Efecto: Permite compactar el espacio entre elementos 
+%  de las listas (noitemsep), algo que por defecto en 
+%  LaTeX suele ser muy disperso.
+
+% appendix: Gestión de anexos.
+%  Efecto: Permite cambiar el nombre de los títulos 
+%  de secciones a "Anexo" automáticamente al final del documento.
+
+% minted: Resaltado de sintaxis.
+%  Efecto: Utiliza una librería externa (Python) para colorear 
+%  código fuente con gran precisión visual.
+
+% csquotes: Comillas avanzadas.
+%  Efecto: Maneja automáticamente el estilo de las comillas 
+%  según el idioma, siendo más inteligente que el teclado.
+
+% biblatex: Motor de bibliografía.
+%  Efecto: Sustituye el antiguo sistema de bibliografía 
+%  por uno mucho más potente y flexible (estilo IEEE).
+
+% hyperref: Gestión de hipervínculos.
+%  Efecto: Convierte todas las referencias, 
+%  citas y URLs en enlaces clicables y coloreados.
+
+% bookmark: Gestión de marcadores.
+%  Efecto: Crea un índice interactivo en el panel lateral 
+%  del lector de PDF, facilitando la navegación.
+
+% cleveref: Referencias inteligentes.
+%  Efecto: Automatiza el nombre de la referencia 
+%  (ej: cambia "Figura 1" por "Figura 1" automáticamente), 
+%  simplificando la escritura de textos.
+
+
+
+% siunitx: Gestor de unidades y números.
+%  Efecto: Asegura el formato correcto de unidades SI y 
+%  decimales, aplicando la coma decimal española  automáticamente 
+%  y evitando espacios erróneos en medidas.
+
+% pdflscape: Gestor de orientación de página.
+%  Efecto: Permite rotar páginas individuales a formato horizontal mediante el 
+%  entorno \begin{landscape}, ideal para tablas anchas o esquemas complejos.
+
+% pdfpages: Gestor de inserción de archivos externos. 
+%  Efecto: Permite integrar archivos PDF completos (como 
+%  certificados o fichas técnicas) como páginas adicionales
+%  de tu propio documento.
+
+%##################################################
+% Explicación de configuraciones clave
+%##################################################
+
+% Configuración de geometría:
+%  Se han fijado márgenes de 3cm (arriba/abajo) y 2.5cm (lados) para 
+%  cumplir con estándares de impresión académica y legibilidad profesional.
+%  El 'headheight' se ajusta a 15pt para evitar advertencias de 'fancyhdr'.
+
+% Configuración de Libertinus:
+%  Se carga 'libertinus' junto con 'libertinust1math' para garantizar 
+%  que tanto el texto como las fórmulas matemáticas compartan la misma 
+%  estética editorial, evitando la desconexión visual de la fuente por defecto.
+
+% Configuración de tcolorbox (estilo 'minimalista'):
+%  Se ha creado un estilo propio con 'colback=gray!5' y 'sharp corners'
+%  para lograr un aspecto moderno, limpio y que no distraiga la atención 
+%  del contenido principal del documento.
+
+% Configuración de captions:
+%  Se ajusta a 'footnotesize' y 'labelfont=bf' para que las etiquetas de 
+%  figuras y tablas no pesen visualmente más que el propio texto del documento.
+
+% Configuración de minted:
+%  Se utiliza el estilo 'tango' para resaltar código. Se ha configurado 
+%  'breaklines' y 'bgcolor=gray!5' para que el código sea legible incluso 
+%  si las líneas son muy largas, evitando que se corten o se salgan del margen.
+
+% Configuración de hyperref:
+%  Se activan los enlaces (colorlinks=true) y se asignan colores específicos
+%  (azul, rojo, cian) para facilitar la navegación del lector sin que los 
+%  enlaces se vean demasiado intrusivos.
+
+% Configuración de siunitx:
+%  Se configura el 'output-decimal-marker' como ',' para forzar la notación 
+%  decimal española y se usa 'detect-all' para que los números mantengan 
+%  siempre la misma fuente que el texto circundante.
+
+% Configuración de enumitem:
+%  Se utiliza 'noitemsep' de forma global para compactar las listas, 
+%  optimizando el espacio vertical y dando un aspecto más profesional 
+%  al no dejar huecos excesivos entre elementos.
+
+%##################################################
+% Requisitos para 'minted'
+%##################################################
+% 'minted' depende de Pygments (librería de Python).
+%
+% 1. INSTALACIÓN DE PYTHON:
+%    Hay que tener Python instalado en el sistema.
+%
+% 2. INSTALACIÓN DE PYGMENTS:
+%    En la terminal (Windows/Linux), ejecutar:
+%    pip install Pygments
+%
+% 3. COMPILACIÓN para que látex lo use:
+%    'minted' requiere el flag '-shell-escape'. 
+%    - en terminal: pdflatex -shell-escape archivo.tex
+%    - en Overleaf: Funciona automáticamente.
+%    - en VS Code/TeXstudio: Añadir '--shell-escape' a las 
+%      opciones de compilación del motor (pdfLaTeX).
+%
+% NOTA: Sin '-shell-escape', LaTeX no puede ejecutar el motor 
+%       externo de Pygments y el documento no compilará.
+
+%##################################################
+% Forma de proceder para cada trabajo
+%##################################################
+% crear copia de la carpeta base_latex
+% crear archivo main.tex con este contenido:
+
+% \documentclass[12pt]{article}
+% \input{preambulo.tex}
+% \input{encabezados.tex}
+% \begin{document}
+%     \input{portada_basica.tex}
+%     \input{portada_carpeta.tex}
+%     \input{indices.tex}
+%     \input{contenido.tex}   
+%     \printbibliography[heading=bibintoc, title={Bibliografía}]
+%     \begin{appendices}
+%         \input{anexos.tex}        
+%     \end{appendices}
+% \end{document}
+
+% crear achivo contenido.tex y ahí escribir el trabajo
+% comentar las líneas que llaman a los archivos (\input{archivo})
+% si no se requieren en el trabajo
